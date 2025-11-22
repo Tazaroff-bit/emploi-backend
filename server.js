@@ -17,6 +17,19 @@ app.use("/api/test", testRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/criteres", criteresRoute);
 app.use("/api/offres", offresRoute);
+app.get("/", (req, res) => {
+  res.json({
+    status: "online",
+    message: "Backend opérationnel",
+    endpoints: {
+      test: "/api/test",
+      users: "/api/users",
+      criteres: "/api/criteres",
+      offres: "/api/offres"
+    }
+  });
+});
+
 
 const PORT = process.env.PORT || 3000;
 
